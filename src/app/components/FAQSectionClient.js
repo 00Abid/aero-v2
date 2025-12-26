@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from 'react';
 
-// --- Aero Enterprises FAQ Data (10 Items) ---
 const AERO_ENTERPRISES_FAQS = [
   {
     question: "What types of sheet metal products does Aero Enterprises specialize in?",
@@ -45,13 +44,12 @@ const AERO_ENTERPRISES_FAQS = [
   },
 ];
 
-// Component for a single FAQ item (Now manages its own open/close state)
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden" data-aos="fade-up">
+    <div className="border border-gray-200 rounded-lg overflow-hidden mx-6" data-aos="fade-up">
       <button
         className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex justify-between items-center"
-        onClick={onClick} // Use the parent's onClick handler
+        onClick={onClick}
       >
         <h3 className="text-sm font-semibold text-black">{question}</h3>
         <span className="text-gray-600">{isOpen ? '−' : '+'}</span>

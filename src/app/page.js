@@ -49,7 +49,7 @@ const Home =
         <section className='bg-white overflow-hidden'>
 
           {/* Hero Section */}
-          <div className="relative w-full h-screen min-h-screen overflow-hidden">
+          <div className="relative w-full h-[80vh] md:min-h-screen overflow-hidden">
             <video
               src='/hero.mp4'
               poster='/hero-image.webp'
@@ -182,7 +182,7 @@ const Home =
             description="Access our full product specifications, grades, and inventory list. Contact AERO ENTERPRISES today for expert solutions."
 
             primaryButtonText="Download Catalogue"
-            primaryButtonLink="/AERO ENTERPRISES Catalogue.pdf"
+            primaryButtonLink="/AERO ENTERPRISES CATALOGUE.pdf"
             isPrimaryDownload={true}
             secondaryButtonText="Contact Us"
             secondaryButtonLink="/contact"

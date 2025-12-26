@@ -13,7 +13,6 @@ export default function Navbar() {
         { path: "/", label: "Home" },
         { path: "/products", label: "Products" }, // Fixed to lowercase
         { path: "/about", label: "About" },       // Fixed to lowercase
-        { path: "/why", label: "Why Choose Us" },       // Fixed to lowercase
         { path: "/contact", label: "Contact" },   // Fixed to lowercase
     ];
 

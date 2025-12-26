@@ -6,7 +6,6 @@ import Image from 'next/image';
 const Footer = () => {
     const companyLinks = [
         { name: 'About Us', path: '/about' },
-        { name: 'Why Choose Us', path: '/why' },
         { name: 'Testimonials', path: '/testimonials' },
         { name: 'Contact', path: '/contact' },
     ];
