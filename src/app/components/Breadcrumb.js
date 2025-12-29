@@ -1,19 +1,25 @@
+'use client';
 import React from 'react';
 import { ChevronRight, Home } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Breadcrumb = () => {
-  const location = useLocation();
-  const pathnames = location.pathname.split('/').filter((x) => x);
+  const pathname = usePathname();
+  // Filter out empty strings and split path into segments
+  const pathnames = pathname.split('/').filter((x) => x);
 
+  // TOP 0.1% SEO: Mapping technical slugs to readable, keyword-rich names
   const breadcrumbNameMap = {
-    '': 'Home',
-    'products': 'Products',
-    'about': 'About Us',
-    'why': 'Why Choose Us',
-    'contact': 'Contact Us',
-    'privacy': 'Privacy Policy',
-    'terms': 'Terms of Service'
+    'products': 'Industrial Inventory',
+    'about': 'Our Legacy',
+    'testimonials': 'Client Reviews',
+    'contact': 'Contact Sales',
+    'hr-sheet-supplier-mumbai': 'HR Sheet Supplier',
+    'cr-sheet-supplier-mumbai': 'CR Sheet Supplier',
+    'gi-sheet-supplier-mumbai': 'GI Sheet Supplier',
+    'ms-chequered-plate-supplier-mumbai': 'MS Chequered Plate',
+    'stainless-steel-coil-supplier-mumbai': 'SS Coil Specialist'
   };
 
   const generateBreadcrumbSchema = () => {
@@ -30,11 +36,11 @@ const Breadcrumb = () => {
       ]
     };
 
-    pathnames.forEach((pathname, index) => {
+    pathnames.forEach((name, index) => {
       breadcrumbList.itemListElement.push({
         "@type": "ListItem",
         "position": index + 2,
-        "name": breadcrumbNameMap[pathname] || pathname,
+        "name": breadcrumbNameMap[name] || name.replace(/-/g, ' ').replace(/(^\w|\s\w)/g, m => m.toUpperCase()),
         "item": `https://www.aeroenterprises.shop/${pathnames.slice(0, index + 1).join('/')}`
       });
     });
@@ -42,47 +48,54 @@ const Breadcrumb = () => {
     return breadcrumbList;
   };
 
+  // Don't render breadcrumbs on the home page
   if (pathnames.length === 0) return null;
 
   return (
     <>
+      {/* 1. SCHEMA INJECTION: Tells Google the site hierarchy */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(generateBreadcrumbSchema())
         }}
       />
-      <nav className="bg-white py-3 px-4" aria-label="Breadcrumb">
+
+      {/* 2. VISUAL NAVIGATION */}
+      <nav className="bg-gray-50 border-b border-gray-100 py-4 px-6" aria-label="Breadcrumb">
         <div className="max-w-7xl mx-auto">
-          <ol className="flex items-center space-x-2 text-sm">
+          <ol className="flex items-center space-x-3 text-[10px] font-black uppercase tracking-widest">
             <li>
               <Link
-                to="/"
-                className="text-gray-500 hover:text-gray-700 flex items-center"
+                href="/"
+                className="text-gray-400 hover:text-black transition-colors flex items-center gap-1"
                 aria-label="Go to homepage"
               >
-                <Home className="w-4 h-4" />
-                <span className="ml-1">Home</span>
+                <Home className="w-3 h-3" />
+                <span>Home</span>
               </Link>
             </li>
-            {pathnames.map((pathname, index) => {
+
+            {pathnames.map((segment, index) => {
               const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
               const isLast = index === pathnames.length - 1;
-              const name = breadcrumbNameMap[pathname] || pathname;
+
+              // Handle name display: Check map, else clean up the slug
+              const displayName = breadcrumbNameMap[segment] || segment.replace(/-/g, ' ');
 
               return (
-                <li key={pathname} className="flex items-center">
-                  <ChevronRight className="w-4 h-4 text-gray-400 mx-1" />
+                <li key={segment} className="flex items-center space-x-3">
+                  <ChevronRight className="w-3 h-3 text-gray-300" />
                   {isLast ? (
-                    <span className="text-gray-900 font-medium" aria-current="page">
-                      {name}
+                    <span className="text-blue-600 font-black truncate max-w-[200px] md:max-w-none" aria-current="page">
+                      {displayName}
                     </span>
                   ) : (
                     <Link
-                      to={routeTo}
-                      className="text-gray-500 hover:text-gray-700"
+                      href={routeTo}
+                      className="text-gray-400 hover:text-black transition-colors"
                     >
-                      {name}
+                      {displayName}
                     </Link>
                   )}
                 </li>

@@ -1,17 +1,12 @@
-// src/app/sitemap/page.js
-// NOTE: Must use Next.js 'Link' component. Using lowercase 'link' from your original code will cause an error.
-
 import React from 'react';
-import Link from 'next/link'; // Corrected import: 'link' -> 'next/link'
-import { ChevronRight, Package, Factory, Newspaper, Phone } from "lucide-react";
-// Assuming CTA is a Client Component (needs 'use client') or a Server Component
+import Link from 'next/link';
+import { ChevronRight, Package, Factory, Newspaper, Phone, ShieldCheck, Box } from "lucide-react";
 import CTA from "../components/CTA";
 
-// 1. --- Next.js SEO Metadata Export (SSR) ---
+// 1. --- Next.js SEO Metadata ---
 export const metadata = {
-    title: "Sitemap | Complete Site Navigation | AERO ENTERPRISES",
-    description: "A complete overview of all pages, products, industries, and resources available on the AERO ENTERPRISES website. Find quick links for easy navigation.",
-    keywords: ["HTML sitemap", "site map AERO ENTERPRISES", "product links"],
+    title: "Sitemap | Industrial Steel Inventory & Resource Index | Aero Enterprises",
+    description: "Access the complete index of Aero Enterprises. Browse our technical steel catalog, industry-specific solutions, and B2B manufacturing resources in one place.",
     alternates: {
         canonical: 'https://www.aeroenterprises.shop/sitemap',
     },
@@ -19,94 +14,87 @@ export const metadata = {
 
 const sitemapSections = [
     {
-        title: "Main Pages",
-        icon: <ChevronRight className="text-white mr-2" size={20} />,
+        title: "Industrial Inventory",
+        description: "Full range of Mill-Certified HR, CR, SS, and GI products.",
         links: [
-            { name: "Home", path: "/" },
-            { name: "Products", path: "/products" },
-            { name: "Why Choose Us", path: "/why" },
-            { name: "About Us", path: "/about" },
-            { name: "Contact", path: "/contact" },
-            { name: "Testimonials", path: "/testimonials" },
+            { name: "All Products Index", path: "/products" },
+            { name: "Hot Rolled (HR) Sheets", path: "/products/hr-sheet-supplier-mumbai" },
+            { name: "Cold Rolled (CR) Sheets", path: "/products/cr-sheet-supplier-mumbai" },
+            { name: "Stainless Steel (SS) Coils", path: "/products/stainless-steel-coil-supplier-mumbai" },
+            { name: "MS Chequered Plates", path: "/products/ms-chequered-plate-supplier-mumbai" },
+            { name: "Galvanized (GI) Sheets", path: "/products/gi-sheet-supplier-mumbai" },
         ]
     },
     {
-        title: "Industries",
-        icon: <Factory className="text-white mr-2" size={20} />,
+        title: "Industrial Verticals",
+        description: "Specialized steel solutions for niche manufacturing sectors.",
         links: [
-            { name: "All Industries", path: "/industries" },
-            { name: "Automotive", path: "/industries/automotive" },
-            { name: "Construction", path: "/industries/construction" },
-            { name: "HVAC", path: "/industries/hvac" },
-            { name: "Aerospace", path: "/industries/aerospace" },
-            { name: "Medical", path: "/industries/medical" },
-            { name: "Energy", path: "/industries/energy" },
+            { name: "Automotive Manufacturing", path: "/industries/automotive" },
+            { name: "Construction & PEB", path: "/industries/construction" },
+            { name: "HVAC & Ventilation", path: "/industries/hvac" },
+            { name: "Pharmaceutical & Food", path: "/industries/medical" },
+            { name: "Renewable Energy", path: "/industries/energy" },
         ]
     },
     {
-        title: "Blog & Resources",
-        icon: <Newspaper className="text-white mr-2" size={20} />,
+        title: "Technical Resources",
+        description: "Deep-dives into steel metallurgy and processing methods.",
         links: [
-            { name: "Blog Home", path: "/blog" },
-            { name: "Precision Machining in Aerospace", path: "/blog/precision-machining-aerospace-industry" },
+            { name: "Precision Machining Guide", path: "/blog/precision-machining-aerospace-industry" },
             { name: "CNC vs Traditional Methods", path: "/blog/cnc-machining-vs-traditional-methods" },
-            { name: "Quality Control in Manufacturing", path: "/blog/quality-control-manufacturing" },
-            { name: "Automotive Manufacturing Trends", path: "/blog/automotive-parts-manufacturing-trends" },
-            { name: "Material Selection Guide", path: "/blog/material-selection-guide" },
-            { name: "Reducing Lead Times", path: "/blog/reducing-lead-times-manufacturing" },
+            { name: "Material Selection Matrix", path: "/blog/material-selection-guide" },
+            { name: "Quality Control Standards", path: "/blog/quality-control-manufacturing" },
         ]
     },
     {
-        title: "Legal & Policies",
-        icon: <Phone className="text-white mr-2" size={20} />,
+        title: "Corporate Identity",
+        description: "Legal, legacy, and trust verification documents.",
         links: [
-            { name: "Privacy Policy", path: "/privacy" },
+            { name: "Our 36-Year Legacy", path: "/about" },
+            { name: "Customer Reviews", path: "/testimonials" },
             { name: "Terms of Service", path: "/terms" },
-            { name: "Cookie Policy", path: "/cookie-policy" },
+            { name: "Privacy & Data Policy", path: "/privacy" },
+            { name: "Contact & Location", path: "/contact" },
         ]
     }
 ];
 
-
-// 3. --- Main Sitemap Server Component ---
 export default function SitemapPage() {
     return (
-        <section className="bg-white">
-
+        <main className="bg-white font-sans">
             {/* Title Section */}
-            <div className='blue-metal w-full h-[30vh] flex justify-center items-center'>
-                <div className='ml-4'>
-                    <h1 className="text-4xl text-white pb-4">
-                        Site Navigation (Sitemap)
+            <div className='blue-metal w-full h-[35vh] flex justify-center items-center text-center px-6'>
+                <div className="max-w-4xl">
+                    <h1 className="text-4xl md:text-6xl text-white font-black uppercase tracking-tighter mb-4">
+                        Industrial Sitemap
                     </h1>
-                    <p className=' text-white text-lg'>
-                        Complete overview of all pages and resources on our website for seamless access.
+                    <p className='text-blue-100 text-lg md:text-xl font-medium'>
+                        The Definitive Navigation Index for Aero Enterprises.
                     </p>
                 </div>
             </div>
 
-            {/* Sitemap Content */}
-            <div className="bg-[#F5F7FA] py-16 px-4">
+            {/* Structured Sitemap Grid */}
+            <div className="bg-gray-50 py-24 px-6">
                 <div className="max-w-7xl mx-auto">
-                    {/* Adjusted grid to 2 columns on medium, 4 columns on large screens for better flow */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
                         {sitemapSections.map((section, idx) => (
-                            <div key={idx} className="bg-white rounded-lg shadow-lg p-6 h-full flex flex-col justify-start">
-
-                                {/* Section Title */}
-                                <h2 className="text-xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-[#36566d]">
+                            <div key={idx} className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col hover:shadow-xl transition-all">
+                                <h2 className="text-xl font-black text-black mb-2 uppercase tracking-tight">
                                     {section.title}
                                 </h2>
+                                <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-6 border-b border-gray-100 pb-4">
+                                    {section.description}
+                                </p>
 
-                                {/* Link List */}
-                                <ul className="space-y-3">
+                                <ul className="space-y-4">
                                     {section.links.map((item, i) => (
                                         <li key={i}>
                                             <Link
-                                                href={item.path} // Use href for Next.js Link
-                                                className="text-gray-700 hover:text-[#36566d] transition-colors flex items-center group"
+                                                href={item.path}
+                                                className="text-gray-600 hover:text-black text-sm font-medium transition-colors flex items-center group"
                                             >
-                                                <ChevronRight className="text-[#36566d] mr-2 group-hover:mr-3 transition-all shrink-0" size={18} />
+                                                <ChevronRight className="text-blue-600 mr-2 group-hover:translate-x-1 transition-transform shrink-0" size={14} />
                                                 {item.name}
                                             </Link>
                                         </li>
@@ -118,55 +106,38 @@ export default function SitemapPage() {
                 </div>
             </div>
 
-            {/* Quick Access Links (The blue boxes) */}
-            <div className="bg-white py-16 px-4">
+            {/* Quick Access: Topical Clusters */}
+            <div className="bg-white py-24 px-6 border-t border-gray-100">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8 md:text-center">
-                        Quick Access
+                    <h2 className="text-3xl font-black text-black mb-12 uppercase tracking-tighter text-center">
+                        Topical Clusters
                     </h2>
                     <div className="grid md:grid-cols-4 gap-6">
-                        <Link
-                            href="/products"
-                            className="bg-linear-to-br from-[#36566d] to-[#4a6f8a] rounded-lg p-6 text-white text-center hover:shadow-xl transition-shadow"
-                        >
-                            <Package className="mx-auto mb-3 text-white" size={36} />
-                            <h3 className="text-xl font-bold">Products</h3>
-                        </Link>
-                        <Link
-                            href="/industries"
-                            className="bg-linear-to-br from-[#36566d] to-[#4a6f8a] rounded-lg p-6 text-white text-center hover:shadow-xl transition-shadow"
-                        >
-                            <Factory className="mx-auto mb-3 text-white" size={36} />
-                            <h3 className="text-xl font-bold">Industries</h3>
-                        </Link>
-                        <Link
-                            href="/blog"
-                            className="bg-linear-to-br from-[#36566d] to-[#4a6f8a] rounded-lg p-6 text-white text-center hover:shadow-xl transition-shadow"
-                        >
-                            <Newspaper className="mx-auto mb-3 text-white" size={36} />
-                            <h3 className="text-xl font-bold">Blog</h3>
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="bg-linear-to-br from-[#36566d] to-[#4a6f8a] rounded-lg p-6 text-white text-center hover:shadow-xl transition-shadow"
-                        >
-                            <Phone className="mx-auto mb-3 text-white" size={36} />
-                            <h3 className="text-xl font-bold">Contact</h3>
-                        </Link>
+                        {[
+                            { icon: <Package />, label: "Inventory", path: "/products" },
+                            { icon: <Factory />, label: "Industries", path: "/industries" },
+                            { icon: <ShieldCheck />, label: "Compliance", path: "/terms" },
+                            { icon: <Phone />, label: "Support", path: "/contact" }
+                        ].map((box, i) => (
+                            <Link key={i} href={box.path} className="group dark-metal-card rounded-[2rem] p-8 text-white text-center hover:scale-[1.03] transition-all shadow-xl">
+                                <div className="mx-auto mb-4 w-12 h-12 flex items-center justify-center bg-white/10 rounded-xl group-hover:bg-blue-600 transition-colors">
+                                    {React.cloneElement(box.icon, { size: 24 })}
+                                </div>
+                                <h3 className="text-xl font-black uppercase tracking-tight">{box.label}</h3>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </div>
 
-            {/* CTA Section */}
             <CTA
-                title="Verify Our Quality. Request ISO Specs Today."
-
-                description="Our ISO-certified processes and deep product expertise ensure your project receives only the best sheet metal materials. Contact our specialists now."
-                primaryButtonText="Request Consultation"
+                title="Can't Find a Specific Grade?"
+                description="We stock 100+ variations of sheet metal. Contact our technical sales desk for a custom inventory check or MTC verification."
+                primaryButtonText="Technical Consultation"
                 primaryButtonLink="/contact"
-                secondaryButtonText="View All Products"
-                secondaryButtonLink="/products"
+                secondaryButtonText="Call Sales"
+                secondaryButtonLink="tel:+918459121717"
             />
-        </section>
+        </main>
     );
 }

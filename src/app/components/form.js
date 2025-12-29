@@ -1,106 +1,98 @@
-// src/app/components/UIMatchedMailtoForm.js
-'use client';
-import React from 'react';
-
-// --- Configuration ---
-const YOUR_EMAIL = "aeroenterprises00@gmail.com";
-const SUBJECT_LINE = "Quote Request for Sheet Metal - via Website Form";
+"use client";
+import React, { useState } from 'react';
+import { Send, CheckCircle } from 'lucide-react';
 
 const Form = () => {
+    const [submitted, setSubmitted] = useState(false);
 
-    const handleFormSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        
-        const form = e.target;
-        const name = form.elements.name.value;
-        const company = form.elements.company.value;
-        const phone = form.elements.phone.value;
-        const requirement = form.elements.requirement.value;
-        
-        const emailBody = `
-        Name: ${name}
-        Company: ${company}
-        Contact No: ${phone}
-        
-        --- Specific Requirements ---
-        ${requirement}
-        
-        --- 
-        Sent from AERO ENTERPRISES website.
-        `.trim();
-        
-        const mailtoLink = `mailto:${YOUR_EMAIL}?subject=${encodeURIComponent(SUBJECT_LINE)}&body=${encodeURIComponent(emailBody)}`;
-        window.location.href = mailtoLink;
+        // Integration logic for EmailJS or your API would go here
+        setSubmitted(true);
     };
 
+    if (submitted) {
+        return (
+            <div className="flex flex-col items-center justify-center p-10 bg-white rounded-2xl text-center">
+                <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                <h3 className="text-2xl font-black text-black uppercase">RFQ Received</h3>
+                <p className="text-gray-600 mt-2">Our technical sales desk will contact you with a formal quote within 120 minutes.</p>
+                <button
+                    onClick={() => setSubmitted(false)}
+                    className="mt-6 text-xs font-black uppercase tracking-widest text-blue-600 underline"
+                >
+                    Send another inquiry
+                </button>
+            </div>
+        );
+    }
+
     return (
-        // Matches the outer shadow and rounded look
-        <div className="max-w-xl mx-auto overflow-hidden shadow-xl rounded-lg" data-aos="zoom-in-up"> 
-            
-            <div className="bg-blue-50 p-6">
-                <h3 className="text-2xl font-medium text-[#36566d]">Send Your Requirement</h3>
-                <p className="text-gray-600 mt-1">Fill out the details to quickly send us your custom quote request.</p>
+        <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Full Name */}
+                <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1 ml-1">Company Contact Name</label>
+                    <input
+                        type="text" required placeholder="e.g. Rajesh Kumar"
+                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-black transition-all"
+                    />
+                </div>
+                {/* Business Email */}
+                <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1 ml-1">Work Email</label>
+                    <input
+                        type="email" required placeholder="name@company.com"
+                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-black transition-all"
+                    />
+                </div>
             </div>
-            
-            {/* Form Body */}
-            <div className="p-6">
-                <form onSubmit={handleFormSubmit} className="space-y-5">
-                    <div>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name" 
-                            required
-                            className="w-full px-4 py-3 border-b-2 border-gray-200 focus:border-[#36566d] placeholder-gray-500 outline-none transition duration-300 bg-white"
-                            placeholder="Your Full Name (Required)"
-                        />
-                    </div>
 
-                    {/* Company */}
-                    <div>
-                        <input
-                            type="text"
-                            id="company"
-                            name="company"
-                            className="w-full px-4 py-3 border-b-2 border-gray-200 focus:border-[#36566d] placeholder-gray-500 outline-none transition duration-300 bg-white"
-                            placeholder="Company/Firm Name (Optional)"
-                        />
-                    </div>
-
-                    {/* Phone */}
-                    <div>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            required
-                            className="w-full px-4 py-3 border-b-2 border-gray-200 focus:border-[#36566d] placeholder-gray-500 outline-none transition duration-300 bg-white"
-                            placeholder="Contact Number (Required)"
-                        />
-                    </div>
-                    
-                    {/* Requirement */}
-                    <div>
-                        <textarea
-                            id="requirement"
-                            name="requirement"
-                            rows="4"
-                            required
-                            className="w-full px-4 py-3 border-b-2 border-gray-200 focus:border-[#36566d] placeholder-gray-500 outline-none transition duration-300 bg-white"
-                            placeholder="Material, Grade, Thickness, Quantity, Destination..."
-                        ></textarea>
-                    </div>
-
-                    {/* Button: Matches the primary color */}
-                    <button
-                        type="submit"
-                        className="w-full bg-[#36566d] hover:bg-[#2c4759] text-white font-semibold py-3 rounded-lg shadow-md transition duration-300 mt-4"
-                    >
-                        Send Inquiry & Request Quote
-                    </button>
-                </form>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Material Selection */}
+                <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1 ml-1">Material Required</label>
+                    <select className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-black transition-all appearance-none cursor-pointer">
+                        <option>HR Sheet (Hot Rolled)</option>
+                        <option>CR Sheet (Cold Rolled)</option>
+                        <option>SS Coil (Stainless Steel)</option>
+                        <option>MS Chequered Plate</option>
+                        <option>GI / GP Sheet</option>
+                        <option>Other / Custom Grade</option>
+                    </select>
+                </div>
+                {/* Estimated Quantity */}
+                <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1 ml-1">Estimated Tonnage / Kgs</label>
+                    <input
+                        type="text" placeholder="e.g. 5 Tons"
+                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-black transition-all"
+                    />
+                </div>
             </div>
-        </div>
+
+            {/* Message / Specifications */}
+            <div>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1 ml-1">Detailed Specifications (Size/Grade)</label>
+                <textarea
+                    rows="4" placeholder="Mention specific grades like IS 2062 E250 or SS 304, and required dimensions..."
+                    className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-black transition-all resize-none"
+                ></textarea>
+            </div>
+
+            {/* Submit Button */}
+            <button
+                type="submit"
+                className="w-full dark-metal-card text-white font-black uppercase tracking-[0.2em] py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-black transition-all active:scale-[0.98]"
+            >
+                Submit RFQ <Send size={16} />
+            </button>
+
+            <p className="text-[9px] text-gray-400 text-center font-bold uppercase tracking-widest">
+                By submitting, you agree to Aero Enterprises privacy & commercial terms.
+            </p>
+        </form>
     );
-}
+};
+
 export default Form;

@@ -3,99 +3,112 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from 'next/navigation';
+import { Menu, X, PhoneCall } from 'lucide-react';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
 
-    // 🛑 FIX 1: Use lowercase paths in the array. This is the path the router expects.
+    // TOP 0.1% SEO: Internal link structure focused on high-intent keywords
     const navItems = [
         { path: "/", label: "Home" },
-        { path: "/products", label: "Products" }, // Fixed to lowercase
-        { path: "/about", label: "About" },       // Fixed to lowercase
-        { path: "/contact", label: "Contact" },   // Fixed to lowercase
+        { path: "/products", label: "Inventory" }, 
+        { path: "/about", label: "Our Legacy" },
+        { path: "/testimonials", label: "Reviews" },
     ];
 
-    const activeLinkClass = "text-[#36566d] font-semibold";
-    const inactiveLinkClass = "text-gray-700 hover:text-[#36566d]";
+    // Function to handle link clicks (Fixes the setState error)
+    const handleLinkClick = () => {
+        if (isOpen) setIsOpen(false);
+    };
+
+    const activeLinkClass = "text-black font-black";
+    const inactiveLinkClass = "text-gray-500 hover:text-black font-bold";
 
     return (
-        <nav className="bg-white shadow-md sticky top-0 z-50 scroll-smooth">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-16 items-center">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center">
+        <nav className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-100 transition-all border-b border-gray-100">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="flex justify-between h-20 items-center">
+                    
+                    {/* 1. BRAND ENTITY SIGNAL */}
+                    <Link href="/" onClick={handleLinkClick} className="flex items-center group">
                         <Image
                             src="/AE-logo.webp"
-                            alt="Logo"
-                            width={100}
-                            height={100}
+                            alt="Aero Enterprises - Industrial Steel Supplier Mumbai"
+                            width={120}
+                            height={40}
+                            className="object-contain group-hover:scale-105 transition-transform"
+                            priority
                         />
                     </Link>
 
-                    {/* Desktop Menu */}
-                    <div className="hidden md:flex space-x-8 items-center">
+                    {/* 2. DESKTOP NAVIGATION */}
+                    <div className="hidden md:flex space-x-10 items-center">
                         {navItems.map((item, i) => {
-                            // 🛑 FIX 2: Only check the current pathname against the item path.
-                            // The pathnames should now match case-sensitively if the file structure is correct.
-                            // Use pathname.includes() for dynamic routes (e.g., /products/sheet-metal)
-                            const isActive = pathname === item.path || pathname.includes(item.path + '/');
-                            const linkClassName = isActive ? `${activeLinkClass} relative pb-1` : `${inactiveLinkClass} relative pb-1`;
-
+                            const isActive = pathname === item.path || (item.path !== '/' && pathname.startsWith(item.path));
+                            
                             return (
-                                // 🛑 FIX 3: Ensure your app folder structure uses lowercase names (e.g., app/products/page.js)
-                                <Link key={i} href={item.path} className={linkClassName}>
-                                    <span className="block">
-                                        {item.label}
-                                    </span>
-                                    <span
-                                        aria-hidden
-                                        className={`absolute left-0 bottom-0 h-0.5 w-full bg-[#36566d] transition-transform duration-300 origin-left ${isActive ? "scale-x-100" : "scale-x-0"}`}
+                                <Link 
+                                    key={i} 
+                                    href={item.path} 
+                                    className={`${isActive ? activeLinkClass : inactiveLinkClass} text-[11px] uppercase tracking-[0.2em] transition-all relative py-2`}
+                                >
+                                    {item.label}
+                                    <span 
+                                        className={`absolute bottom-0 left-0 w-full h-[3px] bg-black transition-transform duration-500 origin-left ${isActive ? 'scale-x-100' : 'scale-x-0'}`}
                                     />
                                 </Link>
                             );
                         })}
+
+                        <Link 
+                            href="/contact" 
+                            className="bg-black text-white px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-2 hover:bg-gray-800 transition-all active:scale-95 shadow-lg"
+                        >
+                            <PhoneCall size={14} /> Get Quote
+                        </Link>
                     </div>
 
-                    {/* Mobile Button */}
+                    {/* 3. MOBILE TOGGLE */}
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-800 focus:outline-none text-2xl transition-transform duration-300"
+                            className="text-black focus:outline-none p-2"
+                            aria-label="Toggle Navigation Menu"
                             aria-expanded={isOpen}
-                            aria-controls="mobile-menu"
                         >
-                            {isOpen ? "✕" : "☰"}
+                            {isOpen ? <X size={28} /> : <Menu size={28} />}
                         </button>
                     </div>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* 4. MOBILE DRAWER - Updated with handleLinkClick */}
             <div
                 id="mobile-menu"
-                className={`absolute top-16 left-0 w-full bg-white shadow-md md:hidden transition-all duration-300 ease-in-out transform ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-                    }`}
-                style={{ transformOrigin: "top" }}
+                className={`fixed inset-x-0 top-20 bg-white shadow-2xl md:hidden transition-all duration-500 ease-in-out border-t border-gray-100 ${isOpen ? "max-h-screen opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-4 overflow-hidden"}`}
             >
-                <div className="px-4 pb-3 space-y-2">
+                <div className="px-6 py-10 space-y-6 flex flex-col items-center text-center">
                     {navItems.map((item, i) => {
-                        const isActive = pathname === item.path || pathname.includes(item.path + '/');
-
+                        const isActive = pathname === item.path || (item.path !== '/' && pathname.startsWith(item.path));
                         return (
                             <Link
                                 key={i}
                                 href={item.path}
-                                onClick={() => setIsOpen(false)}
-                                className={`block px-4 py-2 rounded-md transform transition-all duration-300 ease-in-out ${isActive
-                                    ? "bg-gray-100 text-[#36566d] font-semibold"
-                                    : "text-gray-700 hover:bg-gray-50 hover:text-[#36566d]"
-                                    }`}
+                                onClick={handleLinkClick}
+                                className={`text-xl font-black uppercase tracking-tighter w-full py-2 ${isActive ? "text-black border-b-2 border-black" : "text-gray-400"}`}
                             >
                                 {item.label}
                             </Link>
                         );
                     })}
+                    <Link 
+                        href="/contact" 
+                        onClick={handleLinkClick}
+                        className="w-full bg-black text-white py-5 rounded-2xl font-black uppercase tracking-widest text-sm flex justify-center items-center gap-3"
+                    >
+                        Contact Sales <PhoneCall size={18} />
+                    </Link>
                 </div>
             </div>
         </nav>

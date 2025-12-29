@@ -81,7 +81,7 @@ export default function FAQSectionClient() {
 
   return (
     <section className="max-w-4xl mx-auto py-16">
-      <h2 className="text-3xl md:text-center py-5 px-4 mb-2">
+      <h2 className="text-3xl md:text-5xl text-black font-black uppercase tracking-tight mb-4">
         Frequently Asked Questions
       </h2>
       <div className="space-y-4">

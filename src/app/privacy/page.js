@@ -1,211 +1,132 @@
-// src/app/privacy/page.js
-
 import React from 'react';
-import Link from 'next/link'; // Corrected import
-import { Shield, Lock, Eye, FileText } from 'lucide-react';
-import CTA from '../components/CTA'; // Assuming CTA is a Client or Server Component
+import Link from 'next/link';
+import { Shield, Lock, Eye, FileText, Database, ShieldCheck } from 'lucide-react';
+import CTA from '../components/CTA';
 
-// 1. --- Next.js SEO Metadata Export (SSR) ---
+// 1. --- Next.js SEO Metadata ---
 export const metadata = {
-    title: "Privacy Policy | AERO ENTERPRISES Data Protection",
-    description: "Read AERO ENTERPRISES' Privacy Policy regarding the collection, use, and protection of your personal information. Last updated January 4, 2025.",
-    keywords: ["privacy policy", "data protection", "AERO ENTERPRISES privacy"],
+    title: "Privacy Policy | Data Protection & RFQ Security | Aero Enterprises",
+    description: "Learn how Aero Enterprises safeguards your industrial data, RFQ details, and technical specifications. Our commitment to B2B data privacy in Mumbai & Vasai.",
     alternates: {
         canonical: 'https://www.aeroenterprises.shop/privacy',
     },
 };
 
-
-// --- Data remains unchanged, but placed here for clarity ---
 const sections = [
     {
-        icon: <Shield className="w-8 h-8" />,
-        title: "Information We Collect",
-        content: "We collect information you provide directly, including name, email, phone number, and company details when you request quotes or contact us. We also collect usage data through cookies and analytics to improve our services."
+        icon: <Database className="w-8 h-8" />,
+        title: "Information Collection",
+        content: "We collect professional identity data, including company GST details, material specifications, and logistics requirements to provide accurate industrial quotes."
     },
     {
         icon: <Lock className="w-8 h-8" />,
-        title: "How We Use Your Information",
-        content: "Your information is used to process inquiries, provide quotes, improve our services, and communicate updates. We never sell your personal data to third parties."
+        title: "Usage & Security",
+        content: "Your data is used strictly for order fulfillment and technical consultation. We utilize encrypted servers to protect sensitive fabrication blueprints and RFQ history."
     },
     {
         icon: <Eye className="w-8 h-8" />,
-        title: "Data Security",
-        content: "We implement industry-standard security measures to protect your data, including encryption, secure servers, and regular security audits. Your information is stored securely and accessed only by authorized personnel."
+        title: "Third-Party Disclosure",
+        content: "We do not trade or sell your data. Disclosure is limited to logistics partners for material delivery or as required by Indian industrial regulations."
     },
     {
-        icon: <FileText className="w-8 h-8" />,
-        title: "Your Rights",
-        content: "You have the right to access, correct, or delete your personal data. You can opt-out of marketing communications at any time. Contact us to exercise your rights."
+        icon: <ShieldCheck className="w-8 h-8" />,
+        title: "Your Data Rights",
+        content: "Under Indian IT laws, you retain the right to access, rectify, or request the deletion of your professional records from our procurement database."
     }
 ];
 
-
-// 2. --- Main Privacy Page Server Component ---
 export default function PrivacyPage() {
     return (
-        <>
-            <div className="bg-white">
-                {/* Title Section */}
-                <div className='blue-metal w-full h-[30vh] flex justify-center items-center'>
-                    <div className='ml-4'>
-                        <h1 className="text-4xl text-white pb-4">
-                            Privacy Policy
-                        </h1>
-                        <p className=' text-white text-lg'>
-                            Your privacy is important to us. Protecting your data is our priority.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Content */}
-                <div className="max-w-4xl mx-auto px-4 py-16">
-                    <div className="mb-8">
-                        <p className="text-gray-700 mb-4">
-                            Last Updated: January 4, 2025
-                        </p>
-                        <p className="text-gray-700 mb-4">
-                            AERO ENTERPRISES ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
-                        </p>
-                    </div>
-
-                    {/* Key Sections */}
-                    <div className="grid md:grid-cols-2 gap-6 mb-12">
-                        {sections.map((section, index) => (
-                            <div
-                                key={index}
-                                className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
-                                data-aos="fade-up"
-                            >
-                                <div className="text-[#36566d] mb-4">{section.icon}</div>
-                                <h3 className="text-lg font-semibold text-black mb-2">
-                                    {section.title}
-                                </h3>
-                                <p className="text-gray-700 text-sm">{section.content}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Detailed Sections */}
-                    <div className="space-y-8">
-                        {/* Section 1 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">1. Information Collection</h2>
-                            <div className="text-gray-700 space-y-3">
-                                <p><strong>Personal Information:</strong> Name, email address, phone number, company name, and address when you contact us or request quotes.</p>
-                                <p><strong>Technical Information:</strong> IP address, browser type, device information, and pages visited through cookies and analytics tools.</p>
-                                <p><strong>Communication Data:</strong> Records of correspondence when you contact us via email, phone, or WhatsApp.</p>
-                            </div>
-                        </section>
-
-                        {/* Section 2 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">2. Use of Information</h2>
-                            <ul className="list-disc list-inside text-gray-700 space-y-2">
-                                <li>Process and respond to your inquiries and quote requests</li>
-                                <li>Provide customer support and technical assistance</li>
-                                <li>Send product updates and promotional materials (with consent)</li>
-                                <li>Improve our website and services</li>
-                                <li>Comply with legal obligations</li>
-                                <li>Prevent fraud and enhance security</li>
-                            </ul>
-                        </section>
-
-                        {/* Section 3 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">3. Information Sharing</h2>
-                            <p className="text-gray-700 mb-3">
-                                We do not sell, trade, or rent your personal information. We may share information with:
-                            </p>
-                            <ul className="list-disc list-inside text-gray-700 space-y-2">
-                                <li><strong>Service Providers:</strong> Third-party vendors who assist in operations (e.g., email services, analytics)</li>
-                                <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
-                                <li><strong>Business Transfers:</strong> In connection with mergers or acquisitions</li>
-                            </ul>
-                        </section>
-
-                        {/* Section 4 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">4. Cookies and Tracking</h2>
-                            <p className="text-gray-700 mb-3">
-                                We use cookies and similar technologies to enhance your experience. You can control cookies through your browser settings. For more details, see our <Link href="/cookie-policy" className="text-blue-600 hover:underline">Cookie Policy</Link>.
-                            </p>
-                        </section>
-
-                        {/* Section 5 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">5. Data Security</h2>
-                            <p className="text-gray-700">
-                                We implement appropriate technical and organizational measures to protect your data, including encryption, secure servers, and access controls. However, no method of transmission over the internet is 100% secure.
-                            </p>
-                        </section>
-
-                        {/* Section 6 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">6. Your Rights</h2>
-                            <p className="text-gray-700 mb-3">You have the right to:</p>
-                            <ul className="list-disc list-inside text-gray-700 space-y-2">
-                                <li>Access your personal data</li>
-                                <li>Correct inaccurate information</li>
-                                <li>Request deletion of your data</li>
-                                <li>Object to processing</li>
-                                <li>Withdraw consent</li>
-                                <li>Data portability</li>
-                            </ul>
-                            <p className="text-gray-700 mt-3">
-                                To exercise these rights, contact us at <a href="mailto:aeroenterprises00@gmail.com" className="text-blue-600 hover:underline">aeroenterprises00@gmail.com</a>
-                            </p>
-                        </section>
-
-                        {/* Section 7 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">7. Data Retention</h2>
-                            <p className="text-gray-700">
-                                We retain your personal information for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required by law.
-                            </p>
-                        </section>
-
-                        {/* Section 8 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">8. Children's Privacy</h2>
-                            <p className="text-gray-700">
-                                Our services are not directed to individuals under 18. We do not knowingly collect personal information from children.
-                            </p>
-                        </section>
-
-                        {/* Section 9 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">9. Changes to This Policy</h2>
-                            <p className="text-gray-700">
-                                We may update this Privacy Policy periodically. Changes will be posted on this page with an updated "Last Updated" date.
-                            </p>
-                        </section>
-
-                        {/* Section 10 */}
-                        <section>
-                            <h2 className="text-2xl font-semibold text-black mb-4">10. Contact Us</h2>
-                            <div className="text-gray-700">
-                                <p className="mb-2">If you have questions about this Privacy Policy, contact us:</p>
-                                <p><strong>AERO ENTERPRISES</strong></p>
-                                <p>Gala No. 1, Khan Compound, Near Gausiya Weight Kata</p>
-                                <p>Dhumal Nagar, Vasai - 401208, Maharashtra, India</p>
-                                <p>Email: <a href="mailto:aeroenterprises00@gmail.com" className="text-blue-600 hover:underline">aeroenterprises00@gmail.com</a></p>
-                                <p>Phone: <a href="tel:+918459121717" className="text-blue-600 hover:underline">+91 8459121717</a></p>
-                            </div>
-                        </section>
-                    </div>
-
-                    {/* CTA - FIXING THE MISSING HREF PROP */}
-                    <CTA
-                        title="Ready to Experience the AERO ENTERPRISES Difference?"
-                        description="Contact us today for quotes, technical consultation, or to learn more about our products and services."
-                        primaryButtonText="View Products"
-                        primaryButtonLink="/products" // Added missing link prop
-                        secondaryButtonText="Contact Us"
-                        secondaryButtonLink="/contact" // Added missing link prop
-                    />
+        <main className="bg-white font-sans">
+            {/* Title Section */}
+            <div className='blue-metal w-full h-[35vh] flex justify-center items-center text-center px-6'>
+                <div>
+                    <h1 className="text-4xl md:text-6xl text-white font-black uppercase tracking-tighter mb-4">
+                        Privacy & Data Policy
+                    </h1>
+                    <p className='text-blue-100 text-lg md:text-xl font-medium max-w-2xl mx-auto italic'>
+                        B2B Data Protection & Industrial Confidentiality
+                    </p>
                 </div>
             </div>
-        </>
+
+            <div className="max-w-5xl mx-auto px-6 py-20">
+                {/* Last Updated Hook */}
+                <div className="mb-16 border-l-4 border-black pl-6">
+                    <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-2">Version 2.1 | Last Updated: January 4, 2025</p>
+                    <p className="text-gray-700 leading-relaxed font-medium italic">
+                        At **Aero Enterprises**, we understand that industrial specifications and procurement data are sensitive assets. This policy outlines our "Security-First" approach to handling your professional information.
+                    </p>
+                </div>
+
+                {/* Key Pillars Grid */}
+                <div className="grid md:grid-cols-2 gap-8 mb-20">
+                    {sections.map((section, index) => (
+                        <div
+                            key={index}
+                            className="bg-gray-50 rounded-4xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300"
+                            data-aos="fade-up"
+                        >
+                            <div className="text-black mb-6">{section.icon}</div>
+                            <h3 className="text-xl font-black text-black mb-4 uppercase tracking-tight">
+                                {section.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm leading-relaxed font-medium">{section.content}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Detailed Clauses */}
+                <div className="space-y-12">
+                    <section>
+                        <h2 className="text-2xl font-black text-black mb-6 uppercase tracking-tight">01. Technical Data Sourcing</h2>
+                        <div className="text-gray-700 space-y-4 text-sm leading-relaxed">
+                            <p><strong>RFQ Documentation:</strong> When you submit a Request for Quote, we store material grades (e.g., SS 316L, IS 2062), thickness requirements, and quantity data to optimize future supply cycles.</p>
+                            <p><strong>WhatsApp Correspondence:</strong> We utilize WhatsApp for Business to facilitate rapid communication. Please note that while our internal handling is secure, WhatsApp data is subject to its own end-to-end encryption policies.</p>
+                        </div>
+                    </section>
+
+                    <section className="bg-slate-900 p-10 rounded-[3rem] text-white">
+                        <h2 className="text-2xl font-black mb-6 uppercase tracking-tight text-white">02. Cookies & Industrial Analytics</h2>
+                        <p className="text-white/70 text-sm leading-relaxed mb-6">
+                            We use standard analytical cookies to monitor website performance and improve user experience. These tools collect non-identifiable data such as browser type and session duration to help us optimize our technical resource pages.
+                        </p>
+                        <Link href="/cookiePolicy" className="inline-block text-xs font-black uppercase tracking-widest border-b-2 border-blue-500 pb-1 hover:text-blue-400 transition-colors">
+                            Read Full Cookie Policy →
+                        </Link>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-black text-black mb-6 uppercase tracking-tight">03. Data Retention & Compliance</h2>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                            Aero Enterprises retains commercial records (Invoices, Mill Test Certificates, and Delivery Challans) for a minimum period of 7 years as required under the **Indian Companies Act and GST regulations**. Non-commercial inquiry data is periodically purged to ensure database hygiene.
+                        </p>
+                    </section>
+
+                    <section className="border-t border-gray-100 pt-12">
+                        <h2 className="text-2xl font-black text-black mb-6 uppercase tracking-tight">04. Contact Our Data Desk</h2>
+                        <div className="p-8 bg-gray-50 rounded-2xl border border-gray-100">
+                            <p className="text-gray-600 text-sm mb-4">For requests regarding data access or deletion, please reach out to our Administrative Unit:</p>
+                            <p className="font-black text-black uppercase tracking-tight">Aero Enterprises - Manufacturing Unit</p>
+                            <p className="text-sm text-gray-500 mb-4">Survey No. 109 Richard Compound, Manchipada Road, Vasai Phata, Vasai East, Palghar- 401208</p>
+                            <div className="flex flex-col md:flex-row gap-4">
+                                <a href="mailto:aeroenterprises00@gmail.com" className="text-blue-600 font-bold hover:underline">aeroenterprises00@gmail.com</a>
+                                <span className="hidden md:inline text-gray-300">|</span>
+                                <a href="tel:+918459121717" className="text-gray-800 font-bold">+91 8459121717</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <CTA
+                    title="Transparent. Secure. Professional."
+                    description="Our commitment to privacy is as strong as our steel. Contact us for any clarifications regarding our data or supply policies."
+                    primaryButtonText="Explore Products"
+                    primaryButtonLink="/products"
+                    secondaryButtonText="Contact Us"
+                    secondaryButtonLink="/contact"
+                />
+            </div>
+        </main>
     );
 }

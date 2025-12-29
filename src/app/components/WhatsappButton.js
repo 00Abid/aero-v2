@@ -1,18 +1,24 @@
 'use client';
 import React from 'react';
+import { MessageSquareText } from 'lucide-react';
 
-const numberwa = "+918459121717";
+const numberwa = "918459121717"; // Removed the '+' for cleaner URL protocol
 
 export default function WhatsappButton({ productType }) {
     const requestWhatsappQuote = () => {
-        const message = `Hello AERO ENTERPRISES team,
+        // ELITE B2B MESSAGE: Uses professional industry terminology
+        const message = `*Aero Enterprises | RFQ Inquiry*
+--------------------------------
+Hello Team, I am interested in sourcing: 
+*${productType}*
 
-I’m interested in your product: 
-*${productType}*.
-Could you please share the price details and availability?
+Please provide:
+1. Current market rate per KG/Ton
+2. Availability of Mill Test Certificate (MTC)
+3. Estimated dispatch time to my location.
 
-Thank you
-Sent from your website: www.aeroenterprises.shop`;
+Thank you.
+(Sent via: aeroenterprises.shop)`;
 
         const url = `https://wa.me/${numberwa}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
@@ -20,10 +26,12 @@ Sent from your website: www.aeroenterprises.shop`;
 
     return (
         <button
-            className="w-full dark-metal-card hover:scale-101 text-white py-2 px-4 rounded transition"
+            aria-label={`Inquire about ${productType} on WhatsApp`}
+            className="w-full flex items-center justify-center gap-3 dark-metal-card  text-white py-3 px-6 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all duration-300 shadow-lg hover:shadow-green-500/20 active:scale-95 group"
             onClick={requestWhatsappQuote}
         >
-            Request Quote
+            <MessageSquareText size={16} className="group-hover:animate-bounce" />
+            WhatsApp Quote
         </button>
     );
 }

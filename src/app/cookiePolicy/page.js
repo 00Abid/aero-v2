@@ -1,142 +1,132 @@
+import React from 'react';
+import { Cookie, ShieldCheck, PieChart, Settings, Info } from 'lucide-react';
+import CTA from '../components/CTA';
+
+// 1. --- Next.js SEO Metadata ---
+export const metadata = {
+    title: "Cookie Policy | Transparency & Data Tracking | Aero Enterprises",
+    description: "Detailed overview of how Aero Enterprises uses cookies to enhance your industrial procurement experience. Learn about essential, analytical, and marketing cookies.",
+    alternates: {
+        canonical: 'https://www.aeroenterprises.shop/cookie-policy',
+    },
+};
 
 export default function CookiePolicy() {
-
     return (
-        <>
-            <section className="bg-white ">
+        <main className="bg-white font-sans">
+            {/* 2. HERO HEADER */}
+            <div className='blue-metal w-full h-[35vh] flex justify-center items-center text-center px-6'>
+                <div>
+                    <h1 className="text-4xl md:text-6xl text-white font-black uppercase tracking-tighter mb-4">
+                        Cookie Policy
+                    </h1>
+                    <p className='text-blue-100 text-lg md:text-xl font-medium max-w-2xl mx-auto italic'>
+                        Transparency in Digital Tracking & User Experience
+                    </p>
+                </div>
+            </div>
 
-                {/* Title Section */}
-                <div className='blue-metal w-full h-[30vh] flex justify-center items-center'>
-                    <div className='ml-4'>
-                        <h1 className="text-3xl text-white pb-4 md:text-center">
-                            Cookie Policy
-                        </h1>
-                        <p className=' text-white'>
-                            Last Updated: January 4, 2025
+            <div className="max-w-5xl mx-auto px-6 py-20">
+                {/* 3. PREAMBLE & LAST UPDATED */}
+                <div className="mb-16 border-l-4 border-black pl-6">
+                    <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-2">Effective: January 4, 2025</p>
+                    <p className="text-gray-700 leading-relaxed font-medium">
+                        This policy explains how **Aero Enterprises** uses cookies and similar tracking technologies to recognize you when you visit our website. It outlines what these technologies are, why we use them, and your rights to control our use of them.
+                    </p>
+                </div>
+
+                {/* 4. KEY HIGHLIGHTS GRID */}
+                <div className="grid md:grid-cols-2 gap-8 mb-20">
+                    <div className="bg-gray-50 p-8 rounded-4xl border border-gray-100">
+                        <Cookie className="text-black mb-4 w-8 h-8" />
+                        <h3 className="text-xl font-black text-black mb-3 uppercase tracking-tight">What are Cookies?</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed font-medium">
+                            Cookies are small data files placed on your device to help us remember your preferences, keep you logged in, and analyze our traffic.
+                        </p>
+                    </div>
+                    <div className="bg-gray-50 p-8 rounded-4xl border border-gray-100">
+                        <ShieldCheck className="text-black mb-4 w-8 h-8" />
+                        <h3 className="text-xl font-black text-black mb-3 uppercase tracking-tight">Your Privacy</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed font-medium">
+                            We respect your data. Most cookies we use are analytical and do not store personally identifiable information without your consent.
                         </p>
                     </div>
                 </div>
-                <div className="max-w-4xl mx-auto p-3">
-                    <div className="prose prose-lg max-w-none">
-                        <section className="mb-8">
-                            <h2 className="text-2xl font-semibold text-gray-900 mb-4">What Are Cookies</h2>
-                            <p className="text-gray-700 mb-4">
-                                Cookies are small text files that are placed on your computer or mobile device when you visit our website.
-                                They are widely used to make websites work more efficiently and provide information to website owners.
-                            </p>
-                        </section>
 
-                        <section className="mb-8">
-                            <h2 className="text-2xl font-semibold text-gray-900 mb-4">How We Use Cookies</h2>
-                            <p className="text-gray-700 mb-4">
-                                AERO ENTERPRISES uses cookies to:
-                            </p>
-                            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-                                <li>Remember your preferences and settings</li>
-                                <li>Understand how you use our website</li>
-                                <li>Improve your browsing experience</li>
-                                <li>Analyze website traffic and performance</li>
-                                <li>Provide relevant content and services</li>
-                            </ul>
-                        </section>
+                {/* 5. DETAILED SECTIONS */}
+                <div className="prose prose-slate max-w-none space-y-12">
 
-                        <section className="mb-8">
-                            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Types of Cookies We Use</h2>
+                    <section>
+                        <h2 className="text-2xl font-black text-black mb-6 uppercase tracking-tight flex items-center gap-3">
+                            <PieChart className="text-blue-600" /> 01. How We Use Cookies
+                        </h2>
+                        <p className="text-gray-700 leading-relaxed mb-4 font-medium">
+                            Aero Enterprises utilizes cookies for several technical and analytical reasons:
+                        </p>
+                        <ul className="grid md:grid-cols-2 gap-3 list-none p-0">
+                            {['Authentication & Security', 'User Preferences', 'Marketplace Analytics', 'Technical Load Balancing'].map((item, i) => (
+                                <li key={i} className="bg-gray-50 p-4 rounded-xl text-sm font-bold text-gray-800 flex items-center gap-2 border border-gray-100">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-600"></div> {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
 
-                            <div className="mb-6">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Essential Cookies</h3>
-                                <p className="text-gray-700 mb-2">
-                                    These cookies are necessary for the website to function properly. They enable basic functions
-                                    like page navigation and access to secure areas of the website.
-                                </p>
+                    <section className="bg-slate-900 p-10 rounded-[3rem] text-white">
+                        <h2 className="text-2xl font-black mb-6 uppercase tracking-tight text-white">02. Specific Cookie Types</h2>
+                        <div className="space-y-6">
+                            <div>
+                                <h4 className="text-blue-400 font-black uppercase text-xs tracking-widest mb-2">Essential Cookies</h4>
+                                <p className="text-white/70 text-sm">Mandatory for the website to function (e.g., security protocols and session management).</p>
                             </div>
-
-                            <div className="mb-6">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Analytics Cookies</h3>
-                                <p className="text-gray-700 mb-2">
-                                    These cookies help us understand how visitors interact with our website by collecting and
-                                    reporting information anonymously. We use this data to improve our website performance.
-                                </p>
+                            <div className="border-t border-white/10 pt-6">
+                                <h4 className="text-blue-400 font-black uppercase text-xs tracking-widest mb-2">Analytics Cookies (Google Analytics)</h4>
+                                <p className="text-white/70 text-sm">Helps us understand which industrial material pages (HR, CR, SS) are most helpful to our clients.</p>
                             </div>
-
-                            <div className="mb-6">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Functionality Cookies</h3>
-                                <p className="text-gray-700 mb-2">
-                                    These cookies allow the website to remember choices you make (such as your language preference)
-                                    and provide enhanced, more personalized features.
-                                </p>
+                            <div className="border-t border-white/10 pt-6">
+                                <h4 className="text-blue-400 font-black uppercase text-xs tracking-widest mb-2">Marketing Cookies</h4>
+                                <p className="text-white/70 text-sm">Used to deliver relevant content and measure the effectiveness of our industrial campaigns.</p>
                             </div>
+                        </div>
+                    </section>
 
-                            <div className="mb-6">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Marketing Cookies</h3>
-                                <p className="text-gray-700 mb-2">
-                                    These cookies track your online activity to help us deliver more relevant advertising or to
-                                    limit how many times you see an advertisement.
-                                </p>
-                            </div>
-                        </section>
-
-                        <section className="mb-8">
-                            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Third-Party Cookies</h2>
-                            <p className="text-gray-700 mb-4">
-                                We may use third-party services that also set cookies on your device. These include:
+                    <section>
+                        <h2 className="text-2xl font-black text-black mb-6 uppercase tracking-tight flex items-center gap-3">
+                            <Settings className="text-blue-600" /> 03. Managing Your Preferences
+                        </h2>
+                        <p className="text-gray-700 text-sm leading-relaxed mb-6">
+                            You have the right to decide whether to accept or reject cookies. You can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website, though your access to some functionality and areas of our website may be restricted.
+                        </p>
+                        <div className="p-6 bg-blue-50 rounded-2xl border border-blue-100 flex items-start gap-4">
+                            <Info className="text-blue-600 shrink-0 mt-1" />
+                            <p className="text-blue-800 text-xs font-medium leading-relaxed">
+                                <strong>Technical Note:</strong> Clearing your browser cache or using "Incognito" mode will reset your cookie preferences.
                             </p>
-                            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-                                <li><strong>Google Analytics:</strong> To analyze website traffic and user behavior</li>
-                                <li><strong>Social Media Platforms:</strong> To enable social sharing features</li>
-                                <li><strong>Advertising Networks:</strong> To deliver relevant advertisements</li>
-                            </ul>
-                        </section>
+                        </div>
+                    </section>
+                </div>
 
-                        <section className="mb-8">
-                            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Managing Cookies</h2>
-                            <p className="text-gray-700 mb-4">
-                                You can control and manage cookies in various ways:
-                            </p>
-
-                            <div className="mb-6">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Browser Settings</h3>
-                                <p className="text-gray-700 mb-2">
-                                    Most web browsers allow you to control cookies through their settings. You can set your browser to:
-                                </p>
-                                <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-                                    <li>Block all cookies</li>
-                                    <li>Accept only first-party cookies</li>
-                                    <li>Delete cookies when you close your browser</li>
-                                    <li>Notify you when a cookie is being set</li>
-                                </ul>
-                            </div>
-
-                            <div className="mb-6">
-                                <h3 className="text-xl font-semibold text-gray-800 mb-3">Browser-Specific Instructions</h3>
-                                <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-                                    <li><strong>Chrome:</strong> Settings → Privacy and security → Cookies and other site data</li>
-                                    <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies and Site Data</li>
-                                    <li><strong>Safari:</strong> Preferences → Privacy → Cookies and website data</li>
-                                    <li><strong>Edge:</strong> Settings → Cookies and site permissions → Cookies and site data</li>
-                                </ul>
-                            </div>
-                        </section>
-
-                        <section className="mb-8">
-                            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Impact of Disabling Cookies</h2>
-                            <p className="text-gray-700 mb-4">
-                                Please note that blocking or deleting cookies may impact your experience on our website.
-                                Some features and services may not function properly without cookies enabled.
-                            </p>
-                        </section>
-
-                        <section className="mb-8">
-                            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Updates to This Policy</h2>
-                            <p className="text-gray-700 mb-4">
-                                We may update this Cookie Policy from time to time to reflect changes in our practices or for
-                                legal, operational, or regulatory reasons. We encourage you to review this policy periodically.
-                            </p>
-                        </section>
+                {/* 6. CONTACT FOOTER */}
+                <div className="mt-20 p-10 dark-metal-card rounded-[2.5rem] flex flex-col md:flex-row justify-between items-center gap-8 text-white">
+                    <div>
+                        <h4 className="font-black text-xl uppercase tracking-tight mb-2">Questions?</h4>
+                        <p className="text-white/60 text-sm font-medium italic">Contact our technical team regarding data tracking.</p>
+                    </div>
+                    <div className="text-right flex flex-col items-center md:items-end">
+                        <a href="mailto:aeroenterprises00@gmail.com" className="text-lg font-black text-white hover:text-blue-400 transition-colors underline decoration-blue-600 decoration-4">aeroenterprises00@gmail.com</a>
+                        <p className="text-[10px] font-bold text-white/40 uppercase mt-2 tracking-widest">Policy Ref: AE-CK-2025</p>
                     </div>
                 </div>
-            </section>
-        </>
 
+                <CTA
+                    title="Procure with Transparency"
+                    description="Our commitment to your digital privacy matches our commitment to material quality. Explore our certified inventory today."
+                    primaryButtonText="Explore Products"
+                    primaryButtonLink="/products"
+                    secondaryButtonText="Contact Support"
+                    secondaryButtonLink="/contact"
+                />
+            </div>
+        </main>
     );
 }
