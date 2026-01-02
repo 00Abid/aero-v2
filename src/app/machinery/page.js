@@ -133,7 +133,6 @@ export default function MachineryPage() {
             />
             {/* 1. HERO: TECHNICAL AUTHORITY */}
             <div className='bg-slate-900 w-full h-[50vh] flex justify-center items-center text-center px-6 relative overflow-hidden'>
-                <div className="absolute inset-0 opacity-10 bg-[url('/grid-pattern.svg')]"></div>
                 <div className="relative z-10">
                     <div className="mb-4 inline-flex items-center gap-2 bg-blue-600 px-4 py-1 rounded-full text-white text-[10px] font-black uppercase tracking-[0.3em]">
                         Unit I & Unit II Infrastructure

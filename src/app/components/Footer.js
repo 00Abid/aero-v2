@@ -22,9 +22,9 @@ const Footer = () => {
 
     const inventoryLinks = [
         { name: 'HR Sheets & Coils', path: '/products/hr-coil-supplier-mumbai' },
-        { name: 'CR Sheets & Coils', path: '/products/cr-sheet-supplier-mumbai' },
-        { name: 'Stainless Steel (SS)', path: '/products/stainless-steel-coil-supplier-mumbai' },
-        { name: 'Pickled & Oiled (PO)', path: '/products/pickled-oiled-sheet-supplier-mumbai' },
+        { name: 'CR Sheets & Coils', path: '/products/crc-sheet-supplier-mumbai' },
+        { name: 'Stainless Steel (SS)', path: '/products/ss-coil-supplier-mumbai' },
+        { name: 'Pickled & Oiled (PO)', path: '/products/po-sheet-supplier-mumbai' },
         { name: 'Secondary Steel Stock', path: '/products#secondary' },
     ];
 

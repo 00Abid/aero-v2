@@ -18,7 +18,7 @@ export const metadata = {
   keywords: [
     "AERO ENTERPRISES Vasai",
     "Sheet metal supplier Mumbai",
-    "HR Coil pricing 2026", // Updated for the new year
+    "HR Coil pricing 2026",
     "Stainless Steel sheet supplier Maharashtra",
     "Industrial steel godown Vasai East",
     "JSW TATA SAIL steel dealer",
@@ -53,7 +53,7 @@ export const metadata = {
     description: 'Leading industrial steel sheet suppliers serving the Mumbai region.',
     images: ['/og-image.webp'],
   },
-  
+
   // High-authority robot instructions
   robots: {
     index: true,
@@ -67,6 +67,8 @@ export const metadata = {
     },
   },
 };
+
+
 
 // 2. --- COMPREHENSIVE SCHEMA INJECTION (E-E-A-T) ---
 
@@ -116,6 +118,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta name="google-site-verification" content="bxrk76tl6CCpqJtKvrIwKH-O8RonpETAavnyV6fHboI" />
+        <meta name="msvalidate.01" content="B406A713428734B7264507731D5DC69A" />
         {/* Semantic Schema.org data for Organization and SearchBox */}
         <script
           type="application/ld+json"

@@ -106,7 +106,7 @@ const Home = () => {
               { title: 'Metal Stamping', icon: <Hammer />, desc: 'High-Volume Pressing', link: '/services/metal-stamping' },
               { title: 'CNC Bending', icon: <Layers />, desc: 'Multi-Axis Precision', link: '/services/cnc-bending' },
               { title: 'Powder Coating', icon: <Paintbrush />, desc: 'Industrial Finishing', link: '/services/powder-coating' },
-              { title: 'CNC Punching', icon: <Cpu />, desc: 'Rapid Hole Profiling', link: '/services/punching' },
+              { title: 'CNC Punching', icon: <Cpu />, desc: 'Rapid Hole Profiling', link: '/services/punching-shearing' },
               { title: 'Laser Cutting', icon: <Scissors />, desc: 'Complex Geometry', link: '/services/laser-cutting' },
               { title: 'Welding', icon: <Factory />, desc: 'MIG/TIG Certified', link: '/services/welding' },
               { title: 'Shearing', icon: <Ruler />, desc: 'Custom Cut-to-Size', link: '/services/shearing-blanking' },
