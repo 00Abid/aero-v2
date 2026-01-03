@@ -49,10 +49,10 @@ export default function AboutPage() {
         <main className="bg-white">
             {/* About Page Schema */}
             <AboutPageSchema options={{ baseUrl: 'https://www.aeroenterprises.shop' }} />
-            
+
             {/* Local Business Schema for Both Facilities */}
             <DualFacilitySchema options={{ baseUrl: 'https://www.aeroenterprises.shop' }} />
-            
+
             {/* Comprehensive Location Schema */}
             <ComprehensiveLocationSchema options={{ baseUrl: 'https://www.aeroenterprises.shop' }} />
             {/* 1. HERO: LEGACY ANCHOR */}
@@ -97,7 +97,7 @@ export default function AboutPage() {
                         <div className="absolute -inset-4 bg-blue-600/20 rounded-[4rem] blur-2xl group-hover:bg-blue-600/30 transition-all"></div>
                         <video
                             src="/about.mp4"
-                            className="relative rounded-[3.5rem] shadow-2xl w-full object-cover h-[600px] grayscale hover:grayscale-0 transition-all duration-700"
+                            className="relative rounded-[3.5rem] shadow-2xl w-full object-cover h-[600px] "
                             autoPlay muted loop playsInline
                         />
                         <div className="absolute -bottom-10 -left-10 bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl border border-white/10">
@@ -151,9 +151,9 @@ export default function AboutPage() {
                 </div>
 
                 {/* 5. THE MILESTONE TIMELINE (TRUST) */}
-                <div className="mb-32 bg-slate-50 rounded-[4rem] py-24 px-8 md:px-16 border border-gray-200">
+                <div className="mb-32 dark-metal-card rounded-[4rem] py-24 px-8 md:px-16 border border-gray-200">
                     <div className="max-w-4xl mx-auto">
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 text-center mb-24 uppercase tracking-tighter">The Aero Timeline</h2>
+                        <h2 className="text-4xl md:text-6xl font-black  text-center mb-24 uppercase tracking-tighter">The Aero Timeline</h2>
                         <div className="space-y-16 relative">
                             {/* Central Line */}
                             <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 h-full w-px bg-gray-300"></div>

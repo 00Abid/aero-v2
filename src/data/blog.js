@@ -2,6 +2,7 @@ export const blogPosts = [
     {
         slug: "mild-steel-price-guide-mumbai-2026",
         title: "Mild Steel Price Guide Mumbai: 2026 Market Rates & Trends",
+        Image: "/press.webp",
         h1: "What is the Average Price of Mild Steel in Mumbai Today?",
         date: "January 1, 2026",
         readTime: "10 min read",
@@ -21,6 +22,7 @@ export const blogPosts = [
     {
         slug: "top-mild-steel-suppliers-mumbai-list",
         title: "Top 10 Mild Steel Suppliers in Mumbai: Wholesale & Retail",
+        Image: "/press2.webp",
         h1: "Where to Find the Most Reliable MS Suppliers in Mumbai?",
         date: "December 28, 2025",
         readTime: "12 min read",
@@ -42,6 +44,7 @@ export const blogPosts = [
     {
         slug: "mumbai-steel-price-factors-analysis",
         title: "7 Factors Influencing Mild Steel Pricing in Mumbai Markets",
+        Image: "/press3.webp",
         h1: "Why Do MS Steel Prices Fluctuate in Mumbai?",
         date: "December 24, 2025",
         readTime: "8 min read",
@@ -60,6 +63,7 @@ export const blogPosts = [
     {
         slug: "check-latest-steel-price-trends-india",
         title: "How to Track Live Mild Steel Price Trends in India & Mumbai",
+        Image: "/oven2.webp",
         h1: "Tools and Methods to Stay Ahead of Steel Market Volatility",
         date: "December 20, 2025",
         readTime: "7 min read",

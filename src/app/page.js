@@ -263,7 +263,7 @@ const Home = () => {
         primaryButtonText="Request Direct RFQ"
         primaryButtonLink="/contact"
         secondaryButtonText="Technical Brochure"
-        secondaryButtonLink="/AERO-CATALOGUE.pdf"
+        secondaryButtonLink="/AERO ENTERPRISES CATALOGUE.pdf"
       />
     </main>
   )

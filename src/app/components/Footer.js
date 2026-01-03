@@ -30,7 +30,7 @@ const Footer = () => {
 
     const legalLinks = [
         { name: 'Industrial Blog', path: '/blog' },
-        { name: 'Full Site Index (Sitemap)', path: '/sitemap' },
+        { name: 'Full Site Index (Sitemap)', path: '/site-index' },
         { name: 'Terms of Service (SLA)', path: '/terms' },
         { name: 'Privacy & Data Policy', path: '/privacy' },
         { name: 'Cookie Policy', path: '/cookiepolicy' },

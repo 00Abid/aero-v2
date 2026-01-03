@@ -7,7 +7,6 @@ import {
 } from 'lucide-react';
 import CTA from '../components/CTA';
 
-// Using canonical `blogPosts` from src/data/blog.js
 
 // 2. --- DYNAMIC SEO METADATA ---
 export const metadata = {
@@ -75,7 +74,7 @@ export default function BlogPage() {
                             >
                                 <div className="relative w-full md:w-2/5 h-64 md:h-auto overflow-hidden">
                                     <Image
-                                        src={post.image || '/press.webp'}
+                                        src={post.Image}
                                         alt={post.title}
                                         fill
                                         style={{ objectFit: 'cover' }}

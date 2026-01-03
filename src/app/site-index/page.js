@@ -8,7 +8,7 @@ export const metadata = {
     title: "Sitemap | Integrated Steel Supply & Fabrication Index | Aero Enterprises",
     description: "Complete navigation index for Aero Enterprises. Access our steel inventory, CNC fabrication services, machinery specs, and B2B industrial resources.",
     alternates: {
-        canonical: 'https://www.aeroenterprises.shop/sitemap',
+        canonical: 'https://www.aeroenterprises.shop/site-index',
     },
 };
 

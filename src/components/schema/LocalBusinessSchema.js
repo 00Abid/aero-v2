@@ -20,7 +20,7 @@ export default function LocalBusinessSchema({ locationName = "Unit I", options =
       {
         fallbackType: 'organization',
         enableRetry: false,
-        sanitizeData: true
+        sanitizeData: false
       }
     );
   };

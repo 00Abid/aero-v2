@@ -50,7 +50,7 @@ export const fallbackSchemas = {
     "description": "Steel supply and fabrication services",
     "url": "https://www.aeroenterprises.shop"
   },
-  
+
   product: {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -61,7 +61,7 @@ export const fallbackSchemas = {
       "name": "Aero Enterprises"
     }
   },
-  
+
   service: {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -72,7 +72,7 @@ export const fallbackSchemas = {
       "name": "Aero Enterprises"
     }
   },
-  
+
   webpage: {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -92,7 +92,7 @@ export const fallbackSchemas = {
  */
 export function safeSchemaExecution(generatorFn, args = [], fallbackType = 'organization', options = {}) {
   const { enableFallback = true, logErrors = true } = options;
-  
+
   try {
     // Validate inputs
     if (typeof generatorFn !== 'function') {
@@ -105,7 +105,7 @@ export function safeSchemaExecution(generatorFn, args = [], fallbackType = 'orga
 
     // Execute generator function
     const schema = generatorFn(...args);
-    
+
     // Basic validation
     if (!schema || typeof schema !== 'object') {
       throw new SchemaError(
@@ -194,10 +194,10 @@ export function handleMissingData(data, requiredFields = [], schemaType = 'unkno
   missingFields.forEach(field => {
     if (defaults[field]) {
       processedData[field] = defaults[field];
-      schemaLogger.info(`Applied default value for ${field}`, { 
-        field, 
+      schemaLogger.info(`Applied default value for ${field}`, {
+        field,
         value: defaults[field],
-        schemaType 
+        schemaType
       });
     }
   });
@@ -217,7 +217,7 @@ export function sanitizeSchemaData(data, schemaType) {
     return {};
   }
 
-  const sanitized = {};
+  const sanitized = Array.isArray(data) ? [] : {};
 
   // Sanitize common fields
   Object.keys(data).forEach(key => {
@@ -273,7 +273,7 @@ export async function retrySchemaOperation(operation, maxRetries = 3, delay = 10
       return await operation();
     } catch (error) {
       lastError = error;
-      
+
       schemaLogger.warning(`Schema operation failed, attempt ${attempt}/${maxRetries}`, {
         error: error.message,
         attempt,
@@ -304,7 +304,7 @@ export class SchemaCircuitBreaker {
     this.failureThreshold = options.failureThreshold || 5;
     this.resetTimeout = options.resetTimeout || 60000; // 1 minute
     this.monitoringPeriod = options.monitoringPeriod || 300000; // 5 minutes
-    
+
     this.failures = 0;
     this.lastFailureTime = null;
     this.state = 'CLOSED'; // CLOSED, OPEN, HALF_OPEN
@@ -326,12 +326,12 @@ export class SchemaCircuitBreaker {
 
     try {
       const result = await operation();
-      
+
       // Success - reset if we were in HALF_OPEN
       if (this.state === 'HALF_OPEN') {
         this.reset();
       }
-      
+
       return result;
     } catch (error) {
       this.recordFailure();

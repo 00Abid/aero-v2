@@ -167,8 +167,7 @@ export default function ServicesPage() {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <div className="relative h-[600px] rounded-[4rem] overflow-hidden group border-8 border-white/5">
-                            <Image src="/infra.webp" alt="Integrated Fabrication Workflow" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
-                            <div className="absolute inset-0 bg-blue-900/20"></div>
+                            <Image src="/press3.webp" alt="Integrated Fabrication Workflow" fill className="object-cover " />
                         </div>
                         <div>
                             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 leading-tight">
