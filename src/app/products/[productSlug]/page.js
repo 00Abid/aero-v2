@@ -340,7 +340,6 @@ export default async function ProductPage({ params }) {
 
                     {/* Regional Map Grid */}
                     <section className="text-center bg-slate-900 rounded-[3rem] md:rounded-[5rem] py-20 md:py-32 px-6 md:px-12 shadow-inner relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[url('/mesh.svg')] opacity-5 scale-150"></div>
                         <MapPin className="mx-auto text-blue-500 mb-10 animate-pulse" size={56} />
                         <h3 className="text-4xl md:text-5xl font-black text-white mb-8 uppercase tracking-tighter leading-tight italic">Strategic Supply Hubs</h3>
                         <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-5xl mx-auto">

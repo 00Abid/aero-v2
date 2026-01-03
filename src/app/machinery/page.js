@@ -149,7 +149,7 @@ export default function MachineryPage() {
             {/* 2. SECTION: POWER PRESS UNIT */}
             <section className="py-24 px-6 max-w-7xl mx-auto">
                 <div className="grid lg:grid-cols-3 gap-16 items-start">
-                    <div className="lg:col-span-1 sticky top-32">
+                    <div className="lg:col-span-1 ">
                         <div className="flex items-center gap-3 text-blue-600 mb-6 font-black uppercase tracking-widest text-xs">
                             <Hammer size={20} /> Stamping Division
                         </div>

@@ -106,7 +106,6 @@ const Home = () => {
               { title: 'Metal Stamping', icon: <Hammer />, desc: 'High-Volume Pressing', link: '/services/metal-stamping' },
               { title: 'CNC Bending', icon: <Layers />, desc: 'Multi-Axis Precision', link: '/services/cnc-bending' },
               { title: 'Powder Coating', icon: <Paintbrush />, desc: 'Industrial Finishing', link: '/services/powder-coating' },
-              { title: 'CNC Punching', icon: <Cpu />, desc: 'Rapid Hole Profiling', link: '/services/punching-shearing' },
               { title: 'Laser Cutting', icon: <Scissors />, desc: 'Complex Geometry', link: '/services/laser-cutting' },
               { title: 'Welding', icon: <Factory />, desc: 'MIG/TIG Certified', link: '/services/welding' },
               { title: 'Shearing', icon: <Ruler />, desc: 'Custom Cut-to-Size', link: '/services/shearing-blanking' },
@@ -130,7 +129,7 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative h-[600px] rounded-[3rem] overflow-hidden group">
               <Image src="/press.webp" alt="Heavy Stamping Press"
-                fill className="object-cover  shadow-2xl" />
+                fill className="object-cover w-auto h-auto shadow-2xl" />
               <div className="absolute bottom-10 left-10 text-white">
                 <div className="text-5xl font-black uppercase italic tracking-tighter">High Volume</div>
                 <div className="text-sm font-bold uppercase tracking-widest text-blue-400">Pressing & Stamping Unit</div>
@@ -262,7 +261,7 @@ const Home = () => {
         primaryButtonText="Request Direct RFQ"
         primaryButtonLink="/contact"
         secondaryButtonText="Technical Brochure"
-        secondaryButtonLink="/AERO ENTERPRISES CATALOGUE.pdf"
+        secondaryButtonLink="/aero-enterprises-catalogue.pdf"
       />
     </main>
   )

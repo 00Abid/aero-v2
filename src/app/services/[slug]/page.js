@@ -103,7 +103,6 @@ export default async function ServicePage({ params }) {
 
             {/* HERO SECTION */}
             <section className="bg-slate-900 py-32 px-6 relative overflow-hidden text-center">
-                <div className="absolute inset-0 opacity-10 bg-[url('/grid-pattern.svg')]"></div>
                 <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12">
                     <div className="flex-1">
                         <div className="inline-flex items-center gap-2 bg-blue-600/20 border border-blue-500/30 px-4 py-1 rounded-full text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8">

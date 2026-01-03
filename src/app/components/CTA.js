@@ -37,7 +37,7 @@ const CTA = (props) => {
                         <a
                             href={primaryButtonLink}
                             download
-                            target="/AERO ENTERPRISES CATALOGUE.pdf"
+                            target="/aero-enterprises-catalogue.pdf"
                             className={primaryButtonClass}
                             aria-label={`Download ${primaryButtonText}`}
                         >

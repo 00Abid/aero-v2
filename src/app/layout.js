@@ -116,7 +116,7 @@ export default function RootLayout({ children }) {
   const websiteSchema = generateWebSiteSchema();
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <meta name="google-site-verification" content="bxrk76tl6CCpqJtKvrIwKH-O8RonpETAavnyV6fHboI" />
         <meta name="msvalidate.01" content="B406A713428734B7264507731D5DC69A" />

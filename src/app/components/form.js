@@ -90,15 +90,14 @@ const Form = () => {
                 className="w-full dark-metal-card text-white font-black uppercase tracking-[0.25em] py-5 rounded-xl flex items-center justify-center gap-3 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] transition-all active:scale-[0.97] group"
             >
                 Submit Request For Quote
-                <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
 
             <div className="flex items-center justify-center gap-2 opacity-60">
-                <span className="h-[1px] w-8 bg-slate-300"></span>
+                <span className=" w-8 bg-slate-300"></span>
                 <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest">
                     Enterprise Grade Data Security
                 </p>
-                <span className="h-[1px] w-8 bg-slate-300"></span>
+                <span className=" w-8 bg-slate-300"></span>
             </div>
         </form>
     );

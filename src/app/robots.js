@@ -1,11 +1,12 @@
 export default function robots() {
     return {
-        rules: {
-            userAgent: '*',
-            allow: '/',
-            disallow: ['/private/'],
-        },
+        rules: [
+            {
+                userAgent: '*',
+                allow: '/',
+                disallow: '/private/',
+            },
+        ],
         sitemap: 'https://www.aeroenterprises.shop/sitemap.xml',
     }
 }
-
