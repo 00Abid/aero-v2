@@ -128,7 +128,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative h-[600px] rounded-[3rem] overflow-hidden group">
-              <Image src="/press.webp" alt="Heavy Stamping Press"
+              <Image src="/press4.webp" alt="Heavy Stamping Press"
                 fill className="object-cover w-auto h-auto shadow-2xl" />
               <div className="absolute bottom-10 left-10 text-white">
                 <div className="text-5xl font-black uppercase italic tracking-tighter">High Volume</div>

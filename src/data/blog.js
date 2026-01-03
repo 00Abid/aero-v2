@@ -2,7 +2,7 @@ export const blogPosts = [
     {
         slug: "mild-steel-price-guide-mumbai-2026",
         title: "Mild Steel Price Guide Mumbai: 2026 Market Rates & Trends",
-        Image: "/press.webp",
+        Image: "/drill.webp",
         h1: "What is the Average Price of Mild Steel in Mumbai Today?",
         date: "January 1, 2026",
         readTime: "10 min read",

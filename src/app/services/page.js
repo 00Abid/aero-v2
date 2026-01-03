@@ -48,7 +48,7 @@ const serviceList = [
     },
     {
         title: "CNC Punching & Shearing",
-        slug: "punching-shearing",
+        slug: "shearing-blanking",
         icon: <Cpu size={40} />,
         desc: "High-speed hole profiling and custom cut-to-length shearing to reduce material wastage and assembly time.",
         features: ["Custom Patterning", "6mm Shearing Capacity", "Fast Turnaround"]

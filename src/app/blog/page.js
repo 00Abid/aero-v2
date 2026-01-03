@@ -46,7 +46,6 @@ export default function BlogPage() {
 
             {/* 1. HERO HEADER */}
             <header className='bg-slate-900 w-full py-32 flex justify-center items-center text-center px-6 relative overflow-hidden'>
-                <div className="absolute inset-0 opacity-10 bg-[url('/grid-pattern.svg')]"></div>
                 <div className="relative z-10 max-w-4xl">
                     <div className="mb-6 inline-flex items-center gap-2 bg-blue-600 px-4 py-1 rounded-full text-white text-[10px] font-black uppercase tracking-[0.3em]">
                         Industrial Intelligence Hub
