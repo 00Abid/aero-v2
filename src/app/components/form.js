@@ -12,7 +12,7 @@ const Form = () => {
 
     if (submitted) {
         return (
-            <div className="flex flex-col items-center justify-center p-12 blue-metal-card rounded-3xl text-center shadow-2xl border border-white/10 animate-in fade-in zoom-in duration-300">
+            <div className="flex flex-col items-center justify-center p-12 blue-metal-card rounded-3xl text-center shadow-2xl border border-white/10 animate-in fade-in zoom-in duration-300" id="rfq-success-message">
                 <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6">
                     <CheckCircle className="w-12 h-12 text-green-400" />
                 </div>
@@ -86,6 +86,7 @@ const Form = () => {
 
             {/* Submit Button */}
             <button
+                id='submit-button'
                 type="submit"
                 className="w-full dark-metal-card text-white font-black uppercase tracking-[0.25em] py-5 rounded-xl flex items-center justify-center gap-3 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] transition-all active:scale-[0.97] group"
             >

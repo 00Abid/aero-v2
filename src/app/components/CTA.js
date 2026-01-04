@@ -35,6 +35,7 @@ const CTA = (props) => {
 
                     {isPrimaryDownload ? (
                         <a
+                            id="cta-primary"
                             href={primaryButtonLink}
                             download
                             target="/aero-enterprises-catalogue.pdf"
@@ -44,12 +45,13 @@ const CTA = (props) => {
                             {primaryButtonText}
                         </a>
                     ) : (
-                        <Link href={primaryButtonLink} className={primaryButtonClass}>
+                        <Link id="cta-primary" href={primaryButtonLink} className={primaryButtonClass} >
                             {primaryButtonText}
                         </Link>
                     )}
 
                     <Link
+                        id="cta-secondary"
                         href={secondaryButtonLink}
                         className={secondaryButtonClass}
                         aria-label={secondaryButtonText}
