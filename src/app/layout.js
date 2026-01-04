@@ -4,6 +4,8 @@ import Breadcrumb from "./components/Breadcrumb";
 import "./globals.css";
 import { generateOrganizationSchema, stringifySchema } from "../utils/schemaGenerator.js";
 import { withErrorHandling } from "../utils/schemaErrorHandler.js";
+import { GoogleTagManager } from '@next/third-parties/google';
+import Script from 'next/script';
 
 // 1. --- ELITE METADATA CONFIGURATION (2026 ENHANCED) ---
 export const metadata = {
@@ -129,6 +131,7 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: stringifySchema(websiteSchema) }}
         />
+        <GoogleTagManager gtmId="GTM-5PMHBFRW" />
       </head>
       <body className="antialiased text-slate-900 bg-white selection:bg-blue-600 selection:text-white">
 
@@ -147,7 +150,15 @@ export default function RootLayout({ children }) {
         {/* 4. GLOBAL FOOTER */}
         <Footer />
 
-
+        <Script id="microsoft-clarity-init" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "uvokwun71f");
+          `}
+        </Script>
       </body>
     </html>
   );
