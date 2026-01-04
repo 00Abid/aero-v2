@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link'
 
 const CTA = (props) => {
@@ -14,11 +15,12 @@ const CTA = (props) => {
     const primaryButtonClass = "dark-metal-card px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm text-white transition-all hover:scale-105 active:scale-95 shadow-lg flex items-center justify-center cursor-pointer";
     const secondaryButtonClass = "bg-white text-slate-900 px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm border-2 border-transparent hover:border-white hover:bg-transparent hover:text-white transition-all flex items-center justify-center";
 
-    const handleGTMClick = (buttonId) => {
-        if (window.dataLayer) {
+    const handleGTMClick = (buttonId, buttonText) => {
+        if (typeof window !== 'undefined' && window.dataLayer) {
             window.dataLayer.push({
-                event: 'custom_cta_click',
-                button_id: buttonId
+                event: 'custom_cta_click', // The "shout" name
+                cta_id: buttonId,         // Which button
+                cta_text: buttonText      // What it says
             });
         }
     };
@@ -52,7 +54,7 @@ const CTA = (props) => {
                             {primaryButtonText}
                         </a>
                     ) : (
-                        <Link id="cta-primary" href={primaryButtonLink} className={primaryButtonClass} onClick={() => handleGTMClick('cta-primary')} aria-label={primaryButtonText}>
+                        <Link id="cta-primary" href={primaryButtonLink} className={primaryButtonClass} onClick={() => handleGTMClick('cta-primary', primaryButtonText)} aria-label={primaryButtonText}>
                             {primaryButtonText}
                         </Link>
                     )}
@@ -62,7 +64,7 @@ const CTA = (props) => {
                         href={secondaryButtonLink}
                         className={secondaryButtonClass}
                         aria-label={secondaryButtonText}
-                        onClick={() => handleGTMClick('cta-secondary')}
+                        onClick={() => handleGTMClick('cta-secondary', secondaryButtonText)}
                     >
                         {secondaryButtonText}
                     </Link>
