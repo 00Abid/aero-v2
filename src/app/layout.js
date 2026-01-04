@@ -9,6 +9,9 @@ import Script from 'next/script';
 
 // 1. --- ELITE METADATA CONFIGURATION (2026 ENHANCED) ---
 export const metadata = {
+  authors: [{ name: 'Aero Enterprises' }], // Standard author tag
+  creator: 'Aero Enterprises',
+  publisher: 'Aero Enterprises',
   title: {
     template: "%s | AERO ENTERPRISES",
     default: "AERO ENTERPRISES | Industrial Sheets, Coils Supplier and Fabrication Partner in Mumbai",
@@ -45,6 +48,8 @@ export const metadata = {
         alt: 'Aero Enterprises Industrial Steel Stockyard and Manufacturing Unit',
       },
     ],
+    authors: ['Aero Enterprises'],
+    publishedTime: '2026-01-01T04:30:00.000Z',
     locale: 'en_IN',
     type: 'website',
   },
