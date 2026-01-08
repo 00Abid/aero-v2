@@ -12,6 +12,7 @@ export const metadata = {
   authors: [{ name: 'Aero Enterprises' }], // Standard author tag
   creator: 'Aero Enterprises',
   publisher: 'Aero Enterprises',
+
   title: {
     template: "%s | AERO ENTERPRISES",
     default: "AERO ENTERPRISES | Industrial Sheets, Coils Supplier and Fabrication Partner in Mumbai",
